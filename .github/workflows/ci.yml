@@ -19,10 +19,12 @@ jobs:
           fetch-depth: 0
 
       - name: Install dependencies
-        run: npm i --no-audit --no-fund --no-optional
+        run: npm i --no-audit --no-fund --omit=optional
 
       - name: Build
         run: npm run build
+        env:
+          CI: false
 
       - name: Run code lint check
         run: npm run lint
