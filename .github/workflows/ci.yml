@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: Install dependencies
-        run: npm i --no-audit --no-fund --omit=optional
+        run: npm install --package-lock-only --no-audit --no-fund --omit=optional
 
       - name: Build
         run: npm run build
