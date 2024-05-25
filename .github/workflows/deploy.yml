@@ -36,12 +36,12 @@ jobs:
         run: npm run build
 
       - name: Deploy to Netlify
+        id: netlify_deploy
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        id: netlify_deploy
         run: |
           netlify deploy \
             --dir dist \
             --site ${{ secrets.NETLIFY_SITE_ID }} \
-            --auth ${{ secrets.NETLIFY_API_TOKEN }}
+            --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
